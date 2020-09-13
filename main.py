@@ -21,7 +21,8 @@ alias = {
   'ma': 'math',
   'sci': 'science',
   'cl': 'chinese',
-  'ss': 'social studies'
+  'ss': 'social studies',
+  'chess': 'chess'
 }
 
 
@@ -89,8 +90,8 @@ async def on_message(message):
         try:
           val(link)
         except ValidationError:
-          await message.channel.send(f'```Error! Invalid Syntax! Correct syntax: {prefix}add <subject>, <link>, <version>```')
-          return
+            await message.channel.send(f'```Error! Invalid Link! Make sure your link includes https/http```')
+            return
         else:
           if subject in alias.keys():
             subject = alias[subject]
@@ -149,6 +150,8 @@ async def on_message(message):
 
     if subject not in links.keys():
       await message.channel.send(f'```No data found for subject \"{subject}\"!```')
+      return
+
     x = len(links[subject])
     for version, link in links[subject].items():
       if x == 1:
@@ -164,6 +167,5 @@ async def on_message(message):
   
   with open('data.py', 'w') as data:
     data.write('data = ' + str(links))
-  data.close()
 
 client.run(token)
