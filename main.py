@@ -4,7 +4,7 @@ from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 
 client = discord.Client()
-token = 'NzU0Mjg5NDU4NzQ4MDYzNzU0.X1ykzA.wH73G5mtiqh2nMWGiFlOmoBuP18'
+token = ''
 prefix = 'sn! ' # Study Notes! 
 admins = [720259123639222286, 737557656277090395, 611513933710229504, 652849205454569493]
 # Cheng, Calrence, LQ, Tim
