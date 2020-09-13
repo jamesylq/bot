@@ -4,7 +4,11 @@ from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 
 client = discord.Client()
-token = ''
+token = ""
+
+with open('token.txt', 'r') as tokenSave:
+  token = tokenSave.readlines()[0]
+
 prefix = 'sn! ' # Study Notes! 
 admins = [720259123639222286, 737557656277090395, 611513933710229504, 652849205454569493]
 # Cheng, Calrence, LQ, Tim
